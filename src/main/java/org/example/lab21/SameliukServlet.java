@@ -13,11 +13,9 @@ public class SameliukServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        // Отримання реального шляху до ресурсів вашого веб-додатка
         ServletContext context = getServletContext();
         String path = context.getRealPath("/sameliuk_page.html");
 
-        // Читання HTML-файлу
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
         while ((line = br.readLine()) != null) {
