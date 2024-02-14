@@ -23,6 +23,16 @@ public class DukServlet extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
 
+        ServletContext context = getServletContext();
+        String path = context.getRealPath("/duk.html");
+
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        String line;
+        while ((line = br.readLine()) != null) {
+            out.println(line);
+        }
+        br.close();
+
     }
 
     public void destroy() {
